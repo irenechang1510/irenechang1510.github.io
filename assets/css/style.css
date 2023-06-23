@@ -1132,7 +1132,7 @@ ul.timeline-text-list li {
 
 .blog-text {
   color: var(--light-gray);
-  font-size: var(--fs-6);
+  font-size: var(--fs-8);
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
