@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Richard hanrick" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Irene Chang">Irene Chang</h1>
+
+          <p class="title">Researcher/Data Scientist</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:salbinhabinh@gmail.com" class="contact-link">salbinhabinh@gmail.com</a>
+            </div>
+
+          </li>
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>New York, New York, USA</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://github.com/irenechang1510" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://irenechang1510.medium.com/" class="social-link">
+              <ion-icon name="construct-outline"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/irene-chang-4356a013a/" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <!-- <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li> -->
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Hi! I'm Irene and I'm a PhD student in Statistics at Columbia University, researcher and data scientist.
+            I enjoy finding scalable and explanable methods to improve Machine Learning models with real life application.
+          </p>
+
+          <p>
+            I have experience working on projects at the intersection of tech and other disciplinaries, taking on
+            the role of both an engineer and a scientist, approaching the problem from both the analytics side and 
+            modeling side.
+          </p>
+
+          <p>
+            During my career journey, I've also been a contributing writer for TowardsDataScience, Medium where I share the results of some of my personal projects as I'm passionate about disseminating my research to the public.
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h2 class="h2 article-title">My Work</h2>
+          <h3 class="h3 service-title">Research</h3>
+          <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="https://github.com/irenechang1510/mental-workload-classification/blob/main/Research_writeup.pdf">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/da-fnirs.jpg" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Tufts University</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Sep 2022 – Dec 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Domain Adaptation for Mental Workload Classification</h3>
+
+                  <p class="blog-text">
+                    <b>Summary:</b> Brain signals such as fNIRS vary significantly from one person to another, thus building customized brain-computer interfaces for every user is a necessary, yet laborious thing to do. As part of the ongoing expansion of transfer learning models that can serve this purpose, this study seeks to evaluate a style transfer mapping (STM) method on a dataset of fNIRS signals in a mental workload intensity level classification task. We show that the accuracy of STM varies greatly on the target test data due to the shift in distributions between the train and test set. In addition, we also assess the performance of a modified version of the original model and show that the algorithm with reduced complexity can perform just as well.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://github.com/irenechang1510/bridge-damage-detection/blob/main/final-report-capstone.pdf">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/da-bridge.jpg" alt="Best fonts every designer" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Tufts University</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Sep 2022 – May 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Domain Adaptation for Bridge Damage Detection</h3>
+
+                  <p class="blog-text">
+                    <b>Summary:</b> Bridges in real life vary in structures and materials, which have given rise to many studies on transfer learning models that can be trained on a given bridge to analyze the sensor signals of a new bridge. This study seeks to evaluate a transfer learning technique called Joint Distribution Adaptation on sensor data of acceleration measurements in a binary damage classification task. This technique has previously been showed to produced improved precision on a similar task. We analyze the strengths and drawbacks of our model, with a view to guiding the next steps of this study in the direction of developing a generalizable, trustworthy classifier for damage detection on bridges.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+
+
+          </ul>
+
+        
+
+
+
+        <h3 class="h3 service-title">Personal Projects</h3>
+        </section>
+          
+          <section class="projects">
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://github.com/irenechang1510/viz-a-thon-2021">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/vizathon.png" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Viz-a-thon</h3>
+
+                <p class="project-category">Analyzing social factors that affect child obesity through an interactive web app built with RShiny</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://github.com/irenechang1510/mood-journaling">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/bujo.jpg" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Online Mood Journal</h3>
+
+                <p class="project-category">Building a mood tracker webapp from scratch using daily Spotify data</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://github.com/irenechang1510/sales-analysis">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/grocery.jpg" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Sales Analysis</h3>
+
+                <p class="project-category">A comprehensive analysis of how promotions affect sales across products and locations</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="https://github.com/irenechang1510/topic-classification-NN">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/covid19.jpg" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">COVID-19 Policy Classification</h3>
+
+                <p class="project-category">Scraping data on COVID-19 policy descriptions; Evaluating ML and NLP (with Keras) methods to on policy type multiclass classification</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+      
+
+        </section>
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article id="resume" class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Columbia University</h4>
+
+              <span>2023 — 2028 (Expected)</span>
+
+              <p class="timeline-text">
+                Doctor of Philosophy in Statistics
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Tufts University</h4>
+
+              <span>2020 — 2023</span>
+
+              <p class="timeline-text">
+                Bachelor's of Science in Data Science, Mathematics (Summa Cum Laude)
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Awards and Honors</h3>
+          </div>
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">David Krumme Award</h4>
+          
+              <span>2023</span>
+
+              <p class="timeline-text">Awarded by Tufts University Department of Computer Science for producing meritorious research in Computer Science.</p>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Amazon Web Services (AWS) – Business Intelligence Engineer Intern</h4>
+          
+              <span>May 2023 — Present</span>
+
+              <ul class="timeline-text-list">
+                <li class="timeline-text">
+                  <u>Project 1:</u> Researching interpretable methods on combining random forest and rule extraction to effectively identify customers for AWS product.
+                </li>
+                <li class="timeline-text">
+                  <u>Project 2:</u> Implementing dashboard for monitoring shifts in customer propensity score distributions.
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Alife – Data Science Intern</h4>
+
+              <span>Jun 2022 — Aug 2022</span>
+
+              <ul class="timeline-text-list">
+                <li class="timeline-text">
+                    Conducted research into regression, decision tree methods to optimize the timing of medication given to IVF patients during ovarian stimulation, achieved preliminary results suggesting starting the suppressive medication earlier is more beneficial
+                </li>
+                <li class="timeline-text">
+                    <u>Causal inference:</u> implemented propensity matching algorithm in Python for retrospective analyses of treatment effects on patient data.
+                </li>
+                <li class="timeline-text">
+                    <u>Data Analysis:</u> utilized visualization packages (seaborn, matplotlib) to look for patterns in the data, through which identified a bug in the existing data preprocessing pipeline.
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Coronanet – Data Science Intern</h4>
+
+              <span>Jan 2021 — Jun 2021</span>
+
+              <ul class="timeline-text-list">
+                <li class="timeline-text">
+                    Performed data cleaning and preprocessing on text data of COVID policies around the world in <b><em>R and Python</em></b>.
+                </li>
+                <li class="timeline-text">
+                    Researched and implemented different <b><em>multi-classification and neural network models</em></b> to predict the labels of policy entries from their descriptions with 80% accuracy, reduced miscoding rate among research assistants
+                </li>
+                <li class="timeline-text">
+                    Utilized <b><em>topic modeling</em></b> techniques to sort through 2000 policy entries that don't fit any existing category and identified potential new policy labels for the survey
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Tufts University – Teaching Assistant for CS15: Data Structures</h4>
+
+              <span>Sep 2021 — May 2023</span>
+
+              <ul class="timeline-text-list">
+                <li class="timeline-text">
+                    Held office hour, tutoring students on the concept and implementation of data structure algorithms (<b><em>C++</em></b>)
+                </li>
+                <li class="timeline-text">
+                    Graded homework and exams, all while giving feedback on how to write more effective code
+
+                </li>
+              </ul>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Research Experience & Personal Projects</h3>
+          </div>
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">TowardsDataScience – Contributing Author</h4><a class="timeline-text" href = "https://irenechang1510.medium.com/"><u><i>view my blog</i></u></a>
+          
+              <span>Jun 2021 – Present</span>
+
+              <ul class="timeline-text-list">
+                <li class="timeline-text">
+                    Conducted research projects on various topics on data mining methodologies
+                </li>
+                <li class="timeline-text">
+                    Independently collected data and applied different machine learning algorithms to solve interesting problems with open source datasets. Published articles with over 10k views.
+                </li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title"><a class="h4 timeline-item-title" href = "">Domain Adaptation for Mental Workload Classification</a></h4>
+          
+              <span>Sep 2022 – Dec 2022</span>
+
+              <ul class="timeline-text-list">
+                <li class="timeline-text">
+                    Implemented a <b>multisource transfer learning model</b> in Python for cross-subject mental workload classification task on functional near-infrared spectroscopy (fNIRS) signals using style transfer mapping, logistic regression, support vector machine and k-means.
+                </li>
+                <li class="timeline-text">
+                    Evaluated the model on data from real participants, analyzing cases where the model performs well and poorly
+                </li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title"><a class="h4 timeline-item-title" href = "">Domain Adaptation for Bridge Damage Detection</a></h4>
+          
+              <span>Sep 2022 – May 2023</span>
+
+              <ul class="timeline-text-list">
+                <li class="timeline-text">
+                    Implemented joint domain adaptation algorithm in Python using generalized eigen-decomposition, kernel functions, Mean Maximum Discrepancy matrices, k-nearest neighbors, to maximize alignment of feature distributions of pre-existing and new bridges on a new space.
+                </li>
+                <li class="timeline-text">
+                    Evaluated the performance and fitness of the model on simulated data; preliminary results suggesting classification of different damaged levels is transferable on new bridges
+                </li>
+              </ul>
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title"><a class="h4 timeline-item-title" href = "">Visual Analytics Laboratory at Tufts</a></h4>
+          
+              <span>Jun 2021 – Sep 2021</span>
+
+              <ul class="timeline-text-list">
+                <li class="timeline-text">
+                    Developed a visual system using React.js that lets users interactively select layers and tune hyperparameters to train the graph neural network model from the backend
+                </li>
+                <li class="timeline-text">
+                    Studied papers and took lessons from Stanford’s online open course <i>CS224W: Analysis of Networks</i>
+                </li>
+              </ul>
+            </li>
+            
+          </ol>
+
+        </section>
+
+        <!-- <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Web design</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Graphic design</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Branding</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">WordPress</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section> -->
+
+      </article>
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
