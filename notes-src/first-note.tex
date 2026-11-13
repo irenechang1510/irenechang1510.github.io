@@ -1,0 +1,76 @@
+% date: 2026-11-12
+% summary: A geometric view of residual degrees of freedom through OLS projections and the Gram–Schmidt process.
+% draft: false
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref} % Cross-references with \cref and \Cref
+\title{From Ordinary Least Squares to the Gram-Schmidt process}
+\author{Irene Chang}
+
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\maketitle
+
+\section{Ordinary Least Squares}
+Suppose we have predictors $X_1, \ldots, X_p$ and a response variable $Y$. The ordinary least squares (OLS) estimator seeks to minimize the sum of squared residuals:
+\[
+  \hat{\beta} = \arg\min_\beta \sum_{i=1}^n (Y_i - X_i^\top \beta)^2.
+\]
+In matrix notation, if we let $X \in \R^{n \times p}$ be the design matrix with rows $X_i^\top$ and $Y \in \R^n$ be the response vector, the OLS estimator can be written as
+\begin{equation}
+  \hat{\beta} = \arg\min_\beta \|Y - X\beta\|_2^2. \label{eq:sse-ols}
+\end{equation}
+In settings such as finance, a common practice to evaluate the fit of an OLS model is to examine the residuals and compute metrics like the mean squared error (MSE) or the coefficient of determination ($R^2$). $R^2$ measures the proportion of variance in the response variable that is explained by the predictors and is defined mathematically as 
+\[
+  R^2 = 1 - \frac{SSE}{SST} =  1 - \frac{\sum_{i=1}^n (Y_i - X_i^\top \hat{\beta})^2}{\sum_{i=1}^n (Y_i - \bar{Y})^2},
+\]
+where $\bar{Y} = \frac{1}{n} \sum_{i=1}^n Y_i$ is the sample mean of the response variable. Now, we know that adding more predictors to the model will generally increase $R^2$, even if the new predictors are pure noise. Conceptually, we can relate this to the problem of overfitting, which will shrink the SSE relative to the SST (More in Supplementary Section~\ref{sec:supp-1}). This is why adjusted $R^2$: 
+\[
+\text{Adjusted } R^2 = 1 - \frac{SSE/(n-p-1)}{SST/(n-1)}
+\]
+is often used, which accounts for the number of predictors relative to the sample size.
+
+Now the $n - p - 1$ term in the denominator of the adjusted $R^2$ formula reflects the degrees of freedom associated with the residuals, by definition. This is because we use the data to fit $p + 1$ parameters (including the intercept) in the model. However, at first, it's not very intuitive why fitting $p+1$ parameters means we lose $p+1$ df. To understand this is what motivates this note. 
+\section{Connection to the Gram-Schmidt process}
+Turns out what happens geometrically in OLS regression is mathematically identical to the deflation, Gram-Schmidt orthogonalization, and subspace projections you see in SVD and eigendecomposition. The orthogonalization algorithm, the Gram-Schmidt process, takes a set of linearly independent vectors and produces an orthogonal set of vectors that span the same subspace. Given a set of 3 nonzero linearly independent vectors $\{v_1, v_2, v_3\}$, the Gram-Schmidt process generates an orthogonal set $\{u_1, u_2, u_3\}$ sequentially as follows:
+\begin{enumerate}
+  \item First we let $u_1 = v_1$.
+  \item Then we project the points $v_2$ onto $u_1$ and subtract this projection to get $u_2$:
+\[
+  u_2 = v_2 - \frac{\langle v_2, u_1 \rangle}{\langle u_1, u_1 \rangle} u_1.
+\]
+  \item Finally, we project $v_3$ onto the subspace spanned by $u_1$ and $u_2$ and subtract this projection to get $u_3$:
+\[
+  u_3 = v_3 - \frac{\langle v_3, u_1 \rangle}{\langle u_1, u_1 \rangle} u_1 - \frac{\langle v_3, u_2 \rangle}{\langle u_2, u_2 \rangle} u_2.
+\]
+\end{enumerate}
+
+We can think of the Gram-Schmidt process as doing orthogonalization step-by-step, whereas in OLS we are doing the same thing but all at once, simultaneously, over the entire set of predictors. In OLS, we call the projection matrix, the \emph{hat matrix}, as
+\[
+  H = X(X^\top X)^{-1} X^\top
+\]
+To get residual $e$, we subtract the fitted values from the observed values:
+\[e = Y - X(X^\top X)^{-1} X^\top Y = (I - H)Y.\]
+
+The matrix $H$ projects onto the column space of $X$, and $M = I - H$ is the projection onto the orthogonal complement of the column space of $X$. The residuals $e$ lie in this orthogonal complement. Viewing OLS as an orthogonal projection thus makes degrees of freedom concrete: fitting $p+1$ parameters consumes $p+1$ dimensions of $\mathbb{R}^n$, trapping the residuals in the remaining $(n - p - 1)$-dimensional orthogonal complement. This geometric intuition also clarifies why adding more predictors will always increase $R^2$: every additional predictor is simply another geometric direction claimed from the data—and without accounting for that lost space, any model can appear to explain variance purely by chance. Dividing by this exact remaining dimensionality is what corrects for sample overfitting, turning raw residual error into an unbiased estimate of true variance.
+
+\section{Supplementary}
+\subsection{$R^2$ will always be increased with more predictors, even pure noise} \label{sec:supp-1}
+Before writing the proof, it is useful to think algebraically first. Note that OLS has one job which is to find the exact coefficients that minimize SSE (Equation~\eqref{eq:sse-ols}). When you add the noise variable $Z$ to the design matrix, since OLS searches for global minima over the entire expanded set of parameters, it will only ever choose a non-zero $\beta_\text{noise}$ if doing so reduces the SSE.
+
+To see this mathematically, defien the expanded model as solving:
+\[
+\  SSE_\text{expanded} = \min_{\beta, \beta_\text{noise}} \| Y - X\beta - Z\gamma \|^2.
+\]
+The baseline model SSE is contained within this model class, and is the case when we constrain $\gamma$ to be 0. If you minimize a function over a larger, unconstrained set of parameters, the resulting minimum can only be less than or equal to the minimum over the constrained set. Therefore,
+\[
+\  SSE_\text{expanded} \le SSE_\text{baseline}.
+\]
+Resulting in 
+\[
+\  R^2_\text{expanded} \ge R^2_\text{baseline}.
+\]
+\end{document}
